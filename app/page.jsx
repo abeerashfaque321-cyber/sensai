@@ -18,7 +18,7 @@ import {
 } from "@/components/ui/accordion";
 
 // Ye array function ke BAHAR hona chahiye
-export const features = [
+const features = [
   {
     icon: <BrainCircuit className="w-10 h-10 mb-4 text-primary" />,
     title: "AI-Powered Career Guidance",
@@ -47,7 +47,7 @@ export const features = [
 import { UserPlus, FileEdit, Users } from "lucide-react";
 import Link from "next/link";
 
-export const howItWorks = [
+const howItWorks = [
   {
     title: "Professional Onboarding",
     description: "Share your industry and expertise for personalized guidance",
@@ -71,7 +71,7 @@ export const howItWorks = [
   },
 ];
 
-export const testimonial = [
+const testimonial = [
   {
     quote:
       "The AI-powered interview prep was a game-changer. Landed my dream job at a top tech company!",
@@ -98,7 +98,7 @@ export const testimonial = [
   },
 ];
 
-export const faqs = [
+const faqs = [
   {
     question: "What makes Sensai unique as a career development tool?",
     answer:
@@ -153,7 +153,7 @@ export default function Home() {
   
   <CardContent className="pt-6 text-center flex flex-col items-center">
     <div className="flex flex-col items-center justify-center">
-      {features.icon}
+      {feature.icon}
       <h3 className="text-x1 font-bold mb-2">
         {feature.title}
         </h3>

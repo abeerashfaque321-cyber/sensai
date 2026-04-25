@@ -23,6 +23,26 @@ export const generateAIInsights = async (industry) => {
     IMPORTANT: Return ONLY raw JSON. No markdown.
   `;
 
+export const getIndustryInsights = async () => {
+  const { userId } = auth();
+
+  if (!userId) {
+    throw new Error("Unauthorized");
+  }
+
+  const user = await db.user.findUnique({
+    where: { clerkUserId: userId },
+  });
+
+  if (!user?.industry) {
+    throw new Error("User industry not found");
+  }
+
+  const insights = await generateAIInsights(user.industry);
+
+  return insights;
+};
+
   try {
     // 1. Model name change karke dekhte hain (kuch regions mein 'gemini-1.5-flash-latest' behtar chalta hai)
     const model = genAI.getGenerativeModel({ 
